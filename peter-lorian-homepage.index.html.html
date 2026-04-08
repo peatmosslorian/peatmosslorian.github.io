@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peter Lorian — Teacher, Comox Valley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --moss: #3b5e3a;
+    --moss-light: #e8f0e7;
+    --moss-mid: #6a8f69;
+    --clay: #b05e3a;
+    --clay-light: #f5ece7;
+    --cream: #faf8f4;
+    --ink: #1f2120;
+    --ink-soft: #4a4f4d;
+    --ink-muted: #7a807e;
+    --border: #d8d4cc;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-name {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--moss);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--moss); }
+
+  .nav-links .has-dropdown { position: relative; }
+
+  .nav-links .has-dropdown > a::after { content: ' ↓'; font-size: 0.75rem; }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    min-width: 180px;
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    z-index: 200;
+  }
+
+  .has-dropdown:hover .dropdown { display: block; }
+
+  .dropdown a {
+    display: block;
+    padding: 0.45rem 1rem;
+    font-size: 0.83rem;
+    color: var(--ink-soft);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .dropdown a:hover { background: var(--moss-light); color: var(--moss); }
+
+  /* HERO */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--moss-mid);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+    max-width: 680px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--moss);
+  }
+
+  .hero-intro {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.85rem;
+    border-radius: 100px;
+    background: var(--moss-light);
+    color: var(--moss);
+    letter-spacing: 0.02em;
+  }
+
+  .badge.clay {
+    background: var(--clay-light);
+    color: var(--clay);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.65rem 1.4rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--moss);
+    color: var(--white);
+    border: 1.5px solid var(--moss);
+  }
+
+  .btn-primary:hover { background: #2e4a2d; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--moss);
+    border: 1.5px solid var(--moss-mid);
+  }
+
+  .btn-outline:hover { background: var(--moss-light); }
+
+  /* TERRITORY ACKNOWLEDGEMENT */
+  .territory {
+    max-width: 860px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+  }
+
+  .territory-inner {
+    background: var(--moss-light);
+    border-left: 4px solid var(--moss);
+    border-radius: 0 8px 8px 0;
+    padding: 1.4rem 1.8rem;
+  }
+
+  .territory-inner p {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--moss);
+    line-height: 1.75;
+  }
+
+  .territory-inner .kwakwala {
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: normal;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* SECTIONS GRID */
+  .sections {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .section-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.6rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+  }
+
+  .section-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .card-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .about-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .about-name {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--moss);
+    margin-bottom: 0.3rem;
+  }
+
+  .about-pronouns {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+
+  .about-contact a {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--clay);
+    text-decoration: none;
+    margin-bottom: 0.2rem;
+  }
+
+  .about-contact a:hover { text-decoration: underline; }
+
+  .about-text p {
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  /* PHILOSOPHY */
+  .philosophy {
+    max-width: 860px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+  }
+
+  .section-heading {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .section-subhead {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .phil-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem;
+    background: var(--cream);
+  }
+
+  .phil-card h3 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--moss);
+    margin-bottom: 0.5rem;
+  }
+
+  .phil-card p {
+    font-size: 0.87rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* PROJECT FEATURE */
+  .project-feature {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 4rem 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .project-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .project-tag {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--moss-mid);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-feature h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+    line-height: 1.25;
+  }
+
+  .project-feature .project-sub {
+    font-size: 0.95rem;
+    color: #8fa88e;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-family: 'Lora', Georgia, serif;
+  }
+
+  .project-feature p {
+    font-size: 0.97rem;
+    color: #c8cbc8;
+    line-height: 1.85;
+    max-width: 620px;
+    margin-bottom: 2rem;
+  }
+
+  .btn-light {
+    background: transparent;
+    color: var(--cream);
+    border: 1.5px solid #6a8f69;
+    font-size: 0.88rem;
+    padding: 0.6rem 1.3rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-light:hover { background: rgba(255,255,255,0.08); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-name {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  footer p {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+  }
+
+  footer a {
+    color: var(--moss);
+    text-decoration: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    .nav-links { gap: 1rem; }
+    .nav-links li:nth-child(n+3) { display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .hero { padding: 3rem 1.25rem 2rem; }
+    .sections, .philosophy, .territory { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="index.html">Peter Lorian</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li class="has-dropdown">
+      <a href="projects.html">Projects</a>
+      <div class="dropdown">
+        <a href="ctrl-alt-masc.html">CTRL+ALT+MASC</a>
+      </div>
+    </li>
+    <li class="has-dropdown">
+      <a href="eportfolio.html">E-Portfolio</a>
+      <div class="dropdown">
+        <a href="bctc-1.html">BCTC Standard 1</a>
+        <a href="bctc-2.html">BCTC Standard 2</a>
+        <a href="bctc-3.html">BCTC Standard 3</a>
+        <a href="bctc-4.html">BCTC Standard 4</a>
+        <a href="bctc-5.html">BCTC Standard 5</a>
+        <a href="bctc-6.html">BCTC Standard 6</a>
+        <a href="bctc-7.html">BCTC Standard 7</a>
+        <a href="bctc-8.html">BCTC Standard 8</a>
+        <a href="bctc-9.html">BCTC Standard 9</a>
+      </div>
+    </li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section class="hero">
+    <p class="hero-eyebrow">Gila'kasla — Welcome</p>
+    <h1>Teaching with <em>care, curiosity,</em> and a commitment to belonging.</h1>
+    <p class="hero-intro">
+      I'm Peter Lorian (They/He), a teacher with Comox Valley School District #71, currently on call and pursuing an MEd at Vancouver Island University. I work at the intersection of inclusive education, social justice, and relational pedagogy.
+    </p>
+    <div class="hero-badges">
+      <span class="badge">TTOC · SD71</span>
+      <span class="badge">MEd Candidate · VIU</span>
+      <span class="badge">Special Education</span>
+      <span class="badge clay">CDTA Executive</span>
+      <span class="badge clay">They / He</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="about.html">About me</a>
+      <a class="btn btn-outline" href="eportfolio.html">E-Portfolio</a>
+      <a class="btn btn-outline" href="contact.html">Get in touch</a>
+    </div>
+  </section>
+
+  <section class="territory">
+    <div class="territory-inner">
+      <p>
+        <span class="kwakwala">nugwa'a̱m Gill, Brown, Wilson, Reimer</span>
+        I would like to begin by acknowledging the traditional territories of the K'ómoks First Nation, also known as the Sahtloot, Sasitla, Ieeksun, and Puntledge. As a teacher, I am grateful to live, teach, and grow on this land — which has so much to teach us. I am committed to learning from its culture and traditions, and to working toward justice and repair as we go through this learning process together.
+      </p>
+    </div>
+  </section>
+
+  <div class="sections">
+    <a class="section-card" href="about.html">
+      <div class="card-icon">🌿</div>
+      <div class="card-title">About me</div>
+      <p class="card-desc">My story, philosophy, and what brought me to teaching in the Comox Valley.</p>
+    </a>
+    <a class="section-card" href="eportfolio.html">
+      <div class="card-icon">📂</div>
+      <div class="card-title">E-Portfolio</div>
+      <p class="card-desc">Evidence across all nine BC Teaching Council standards of professional practice.</p>
+    </a>
+    <a class="section-card" href="ctrl-alt-masc.html">
+      <div class="card-icon">✊</div>
+      <div class="card-title">CTRL+ALT+MASC</div>
+      <p class="card-desc">A curated project on gender-transformative education for boys in inclusive classrooms.</p>
+    </a>
+    <a class="section-card" href="cv.html">
+      <div class="card-icon">📄</div>
+      <div class="card-title">CV</div>
+      <p class="card-desc">Teaching experience, education, and professional history.</p>
+    </a>
+  </div>
+
+  <section class="about-strip">
+    <div class="about-inner">
+      <div>
+        <p class="about-label">The person</p>
+        <p class="about-name">Peter Lorian</p>
+        <p class="about-pronouns">They / He &nbsp;·&nbsp; Mx. Lorian</p>
+        <div class="about-contact">
+          <a href="mailto:peter.lorian@sd71.bc.ca">peter.lorian@sd71.bc.ca</a>
+          <a href="tel:2507023178">250.702.3178</a>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>
+          I was born in Aotearoa (New Zealand) and grew up on the Stó:lō territories in the Fraser Valley. In 2016, I moved to the territories of the K'ómoks First Nation, where I live and teach. My family spends summers along the Puntledge River and our neighbourhood is our community.
+        </p>
+        <p>
+          As a TTOC with experience as an EA, youth support worker, and community educator, I've worked across Lake Trail Community School, Aspen Park Elementary, and district-wide support roles. I bring a strong foundation in learning differences, relational practice, and social justice pedagogy.
+        </p>
+        <p>
+          My Mennonite ancestry — grandparents from Mount Lehman, BC, shaped by ostracism and sheltering others — runs through my commitment to classrooms where everyone belongs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <h2 class="section-heading">Educational philosophy</h2>
+    <p class="section-subhead">Three commitments that shape my practice</p>
+    <div class="philosophy-grid">
+      <div class="phil-card">
+        <h3>People</h3>
+        <p>Respectful, mutual relationships with learners, families, colleagues, and community. Learning is relational. I model vulnerability and create democratic classrooms where students have a voice.</p>
+      </div>
+      <div class="phil-card">
+        <h3>Subject areas</h3>
+        <p>A holistic, cross-curricular approach that integrates Indigenous knowledge and brings community into the classroom — and the classroom into the community.</p>
+      </div>
+      <div class="phil-card">
+        <h3>Ways of learning</h3>
+        <p>Universal Design for Learning as a foundation. Inquiry-based projects, whole-group dialogue, and student choice in how they demonstrate understanding. All students are intelligent.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-feature">
+    <div class="project-inner">
+      <p class="project-tag">Featured project</p>
+      <h2>CTRL+ALT+MASC</h2>
+      <p class="project-sub">Rewriting the rules for Gen Z/Alpha boys</p>
+      <p>
+        How can creative, school-based interventions support boys in reimagining masculinity through empathy, equity, and connection — particularly in inclusive classrooms that serve neurodivergent and marginalized students? This resource curation draws on bell hooks, Michael Kimmel, WiseGuyz, White Ribbon, and current research on masculinist influencers in schools.
+      </p>
+      <a class="btn-light" href="ctrl-alt-masc.html">Explore the project →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-name">Peter Lorian</span>
+    <p>Teacher on Call · Comox Valley School District #71 · K'ómoks territory</p>
+    <p>Photos by Peter Lorian unless otherwise noted · <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
